@@ -1,10 +1,9 @@
 .page-container {
   min-height: 100vh;
-  background-color: #e9d5ff;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: #e9d5ff;
 }
 
 .white-space-header {
@@ -16,10 +15,11 @@
 .main-title {
   font-size: 24px;
   color: #333;
-  margin: 40px 0;
-  align-self: flex-start;
-  margin-left: calc((100% - 600px) / 2);
-  font-weight: bold;
+  margin: 40px auto;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 1rem;
+  font-weight: normal;
 }
 
 .warranty-container {
@@ -27,6 +27,7 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 0 1rem;
+  flex: 1;
 }
 
 .warranty-container mat-card {
@@ -111,10 +112,4 @@ form mat-form-field {
 
 :host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
   height: 20px !important;
-}
-
-@media (max-width: 640px) {
-  .main-title {
-    margin-left: 1rem;
-  }
 }
