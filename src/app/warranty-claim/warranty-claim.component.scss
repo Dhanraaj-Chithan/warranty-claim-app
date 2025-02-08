@@ -1,5 +1,25 @@
-.container {
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: #e9d5ff;
+}
+
+.white-space {
+  background-color: white;
+  height: 60px;
+  flex-shrink: 0; // Prevents shrinking
+}
+.page-container {
+  min-height: 100vh;
+  background-color: #e9d5ff;
+  width: 100%;
+}
+
+.white-space-header {
+  height: 60px;
+  background-color: white;
+  width: 100%;
 }
 
 .warranty-container {
@@ -13,7 +33,82 @@
   }
 }
 
+.white-space-footer {
+  height: 60px;
+  background-color: white;
+  width: 100%;
+}
 
+// Rest of your existing styles...
+.content-area {
+  flex: 1;
+  background-color: #e9d5ff;
+  position: relative;
+  z-index: 1; // Ensures content stays above white spaces
+}
+
+.warranty-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  
+  mat-card {
+    padding: 2rem;
+    background-color: white;
+  }
+}
+
+.container {
+  background-color: #e9d5ff;
+}
+
+.heading{
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  
+}
+.warranty-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  
+  mat-card {
+    padding: 2rem;
+    background-color: white;
+  }
+}
+
+.page-container {
+  min-height: 100vh;
+  background-color: #e9d5ff;
+  width: 100%;
+}
+
+.white-space-header {
+  height: 60px;
+  background-color: white;
+  width: 100%;
+}
+
+.warranty-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  
+  mat-card {
+    padding: 2rem;
+    background-color: white;
+  }
+}
+
+.white-space-footer {
+  height: 200px;
+  background-color: white;
+  width: 100%;
+}
+
+// Rest of your existing styles...
 
 h2 {
   margin-bottom: 2rem;

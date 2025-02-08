@@ -1,104 +1,101 @@
+<div class="page-container">
+  <!-- White space header -->
+  <div class="white-space-header"></div>
 
-
+  <!-- Main form content -->
   <div class="warranty-container">
-  <mat-card class="bg-white">
-    <!-- Company Header -->
-    
+    <mat-card class="bg-white">
+        <h2>Warranty Claim</h2>
 
-    <h2>Warranty Claim</h2>
+        <form [formGroup]="warrantyForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="fullName">
+            <mat-hint>Enter the name on which order was placed</mat-hint>
+            <mat-error *ngIf="warrantyForm.get('fullName')?.hasError('required')">
+              Full name is required
+            </mat-error>
+          </mat-form-field>
 
-    <form [formGroup]="warrantyForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="outline">
-        <mat-label>Full Name</mat-label>
-        <input matInput formControlName="fullName">
-        <mat-hint>Enter the name on which order was placed</mat-hint>
-        <mat-error *ngIf="warrantyForm.get('fullName')?.hasError('required')">
-          Full name is required
-        </mat-error>
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email">
+            <mat-error *ngIf="warrantyForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="warrantyForm.get('email')?.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email">
-        <mat-error *ngIf="warrantyForm.get('email')?.hasError('required')">
-          Email is required
-        </mat-error>
-        <mat-error *ngIf="warrantyForm.get('email')?.hasError('email')">
-          Please enter a valid email address
-        </mat-error>
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput formControlName="mobileNumber">
+            <mat-hint>Number given during purchase of the product</mat-hint>
+            <mat-error *ngIf="warrantyForm.get('mobileNumber')?.hasError('required')">
+              Mobile number is required
+            </mat-error>
+            <mat-error *ngIf="warrantyForm.get('mobileNumber')?.hasError('pattern')">
+              Please enter a valid 10-digit number
+            </mat-error>
+          </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Mobile Number</mat-label>
-        <input matInput formControlName="mobileNumber">
-        <mat-hint>Number given during purchase of the product</mat-hint>
-        <mat-error *ngIf="warrantyForm.get('mobileNumber')?.hasError('required')">
-          Mobile number is required
-        </mat-error>
-        <mat-error *ngIf="warrantyForm.get('mobileNumber')?.hasError('pattern')">
-          Please enter a valid 10-digit number
-        </mat-error>
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Postcode</mat-label>
+            <input matInput formControlName="postcode">
+            <mat-error *ngIf="warrantyForm.get('postcode')?.hasError('required')">
+              Postcode is required
+            </mat-error>
+            <mat-error *ngIf="warrantyForm.get('postcode')?.hasError('pattern')">
+              Please enter a valid 6-digit postcode
+            </mat-error>
+          </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Postcode</mat-label>
-        <input matInput formControlName="postcode">
-        <mat-error *ngIf="warrantyForm.get('postcode')?.hasError('required')">
-          Postcode is required
-        </mat-error>
-        <mat-error *ngIf="warrantyForm.get('postcode')?.hasError('pattern')">
-          Please enter a valid 6-digit postcode
-        </mat-error>
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Invoice Number</mat-label>
+            <input matInput formControlName="invoiceNumber">
+            <mat-error *ngIf="warrantyForm.get('invoiceNumber')?.hasError('required')">
+              Invoice number is required
+            </mat-error>
+          </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Invoice Number</mat-label>
-        <input matInput formControlName="invoiceNumber">
-        <mat-error *ngIf="warrantyForm.get('invoiceNumber')?.hasError('required')">
-          Invoice number is required
-        </mat-error>
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Issue Description</mat-label>
+            <textarea matInput formControlName="issueDescription" rows="4"></textarea>
+            <mat-error *ngIf="warrantyForm.get('issueDescription')?.hasError('required')">
+              Issue description is required
+            </mat-error>
+            <mat-error *ngIf="warrantyForm.get('issueDescription')?.hasError('minlength')">
+              Description must be at least 20 characters
+            </mat-error>
+          </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Issue Description</mat-label>
-        <textarea matInput formControlName="issueDescription" rows="4"></textarea>
-        <mat-error *ngIf="warrantyForm.get('issueDescription')?.hasError('required')">
-          Issue description is required
-        </mat-error>
-        <mat-error *ngIf="warrantyForm.get('issueDescription')?.hasError('minlength')">
-          Description must be at least 20 characters
-        </mat-error>
-      </mat-form-field>
-
-
-    <div class="upload-container">
-      <div class="upload-input">
-        <div class="input-wrapper" (click)="fileInput.click()">
-          <div class="input-content">
-            <span class="input-text">{{ selectedFile ? selectedFile.name : 'Invoice Image' }}</span>
-            <mat-icon class="add-icon">add</mat-icon>
+          <div class="upload-container">
+            <div class="upload-input">
+              <div class="input-wrapper" (click)="fileInput.click()">
+                <div class="input-content">
+                  <span class="input-text">{{ selectedFile ? selectedFile.name : 'Invoice Image' }}</span>
+                  <mat-icon class="add-icon">add</mat-icon>
+                </div>
+              </div>
+            </div>
+            <input #fileInput 
+                  type="file" 
+                  accept="image/*"
+                  (change)="onFileSelected($event)" 
+                  style="display: none">
           </div>
-        </div>
-      </div>
-      <input #fileInput 
-            type="file" 
-            accept="image/*"
-            (change)="onFileSelected($event)" 
-            style="display: none">
+
+          <button mat-flat-button 
+                  type="submit" 
+                  [disabled]="!warrantyForm.valid"
+                  class="submit-button">
+            Continue
+          </button>
+        </form>
+      </mat-card>
     </div>
-
-      <button mat-flat-button 
-              type="submit" 
-              [disabled]="!warrantyForm.valid"
-              class="submit-button">
-        Continue
-      </button>
-    </form>
-  </mat-card>
-  <div style="height: 160px"></div>  <!-- Adjust height as needed for desired spacing -->
-</div>
-
-<!-- Adding blank space at bottom -->
-<!-- Add after the mat-card closing tag -->
-
-
+  
+    <!-- White space footer -->
+    <div class="white-space-footer"></div>
+  </div>
