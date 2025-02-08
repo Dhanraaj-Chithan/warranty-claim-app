@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { WarrantyClaimComponent } from './warranty-claim/warranty-claim.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [WarrantyClaimComponent],
+  template: '<app-warranty-claim></app-warranty-claim>'
 })
 export class AppComponent {
   title = 'warranty-claim-app';
