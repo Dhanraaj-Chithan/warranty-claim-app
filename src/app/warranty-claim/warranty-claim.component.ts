@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule
   ],
   templateUrl: './warranty-claim.component.html',
-  styleUrls: ['./warranty-claim.component.scss']
+  styleUrls: ['./warranty-claim.component.css']
 })
 export class WarrantyClaimComponent {
   warrantyForm: FormGroup;
